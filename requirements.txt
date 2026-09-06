@@ -1,0 +1,25 @@
+# OpsPilot AI — Phase 1 runtime dependencies
+# Pinned to ranges compatible with Python 3.11+ (developed/tested on 3.13).
+fastapi>=0.115,<1.0
+uvicorn>=0.22,<1.0
+pydantic>=2.7,<3.0
+pydantic-settings>=2.2,<3.0
+SQLAlchemy>=2.0,<2.1
+psycopg2-binary>=2.9,<3.0        # PostgreSQL driver (postgresql+psycopg2://)
+chromadb>=1.0,<2.0               # semantic knowledge store (embedded PersistentClient)
+streamlit>=1.40,<2.0
+httpx>=0.27,<1.0                 # external API clients (ServiceNow / New Relic real adapters)
+python-dotenv>=1.0,<2.0
+numpy>=1.26
+langgraph>=0.2,<0.7              # Phase 2: bounded investigation state machine
+
+# OPTIONAL (Phase 2 LLM hypothesis generation, OFF by default — the heuristic
+# generator needs none of these). Install only the provider you enable via
+# INVESTIGATION_LLM_MODE=on + INVESTIGATION_LLM_PROVIDER=...:
+#   langchain-anthropic | langchain-openai | langchain-google-genai | langchain-ollama
+
+# NOTE: sentence-transformers is intentionally NOT required. The default embedding
+# backend is a deterministic, offline hashing embedder (see app/knowledge/embeddings.py),
+# so the whole app installs and runs with zero network access and zero credentials.
+# To enable the optional ST backend, `pip install sentence-transformers` and set
+# EMBEDDING_BACKEND=sentence_transformers.

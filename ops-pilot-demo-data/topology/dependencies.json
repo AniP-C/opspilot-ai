@@ -1,0 +1,67 @@
+{
+  "dependencies": [
+    {
+      "source_service": "svc-frontend",
+      "target_service": "svc-oms",
+      "relationship": "calls",
+      "protocol": "REST",
+      "criticality": "critical"
+    },
+    {
+      "source_service": "svc-oms",
+      "target_service": "svc-payment",
+      "relationship": "calls",
+      "protocol": "gRPC",
+      "criticality": "critical"
+    },
+    {
+      "source_service": "svc-oms",
+      "target_service": "svc-inventory",
+      "relationship": "calls",
+      "protocol": "gRPC",
+      "criticality": "high"
+    },
+    {
+      "source_service": "svc-oms",
+      "target_service": "svc-kafka",
+      "relationship": "publishes_to",
+      "protocol": "TCP",
+      "criticality": "high"
+    },
+    {
+      "source_service": "svc-kafka",
+      "target_service": "svc-wms",
+      "relationship": "consumed_by",
+      "protocol": "TCP",
+      "criticality": "high"
+    },
+    {
+      "source_service": "svc-oms",
+      "target_service": "svc-redis",
+      "relationship": "reads_writes",
+      "protocol": "TCP",
+      "criticality": "high"
+    },
+    {
+      "source_service": "svc-oms",
+      "target_service": "svc-pg-oms",
+      "relationship": "reads_writes",
+      "protocol": "TCP",
+      "criticality": "critical"
+    },
+    {
+      "source_service": "svc-wms",
+      "target_service": "svc-inventory",
+      "relationship": "calls",
+      "protocol": "REST",
+      "criticality": "medium"
+    },
+    {
+      "source_service": "svc-wms",
+      "target_service": "svc-pg-wms",
+      "relationship": "reads_writes",
+      "protocol": "TCP",
+      "criticality": "critical"
+    }
+  ]
+}

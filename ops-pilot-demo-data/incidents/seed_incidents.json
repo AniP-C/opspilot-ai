@@ -1,0 +1,261 @@
+{
+  "seed_incidents": [
+    {
+      "incident": {
+        "incident_id": "DEMO-001",
+        "title": "Checkout latency and DB connection errors",
+        "description": "At 09:25 UTC, on-call received New Relic alerts for elevated checkout latency. Logs show 'FATAL: sorry, too many clients already' from the OMS service. Traffic has spiked.",
+        "service": "svc-oms",
+        "severity": "SEV1",
+        "environment": "production",
+        "created_at": "2026-09-02T09:25:00Z",
+        "symptoms": [
+          "OMS latency > 2000ms",
+          "500 errors on /checkout"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Spike in traffic causing connection pool exhaustion.",
+        "expected_service": "svc-pg-oms",
+        "expected_remediation": "Scale DB connections or restart OMS pods.",
+        "historical_pattern": "DB_Exhaustion"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-002",
+        "title": "OMS order creation timing out",
+        "description": "Shortly after 10:00 UTC, checkout API requests started returning 504 Gateway Timeouts. Error rates hovering around 15%.",
+        "service": "svc-oms",
+        "severity": "SEV1",
+        "environment": "production",
+        "created_at": "2026-09-02T10:15:00Z",
+        "symptoms": [
+          "OMS latency > 3000ms",
+          "Frontend order creation timeouts"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Un-indexed query introduced in v4.2.1.",
+        "expected_service": "svc-oms",
+        "expected_related_deployment": "dep-oms-v4.2.1",
+        "expected_remediation": "Rollback OMS deployment.",
+        "historical_pattern": "Deployment_Regression",
+        "related_deployment_id": "dep-oms-v4.2.1"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-003",
+        "title": "Warehouse packing slips delayed",
+        "description": "Fulfillment center managers report no new orders appearing in their local systems. OMS confirms orders are being accepted.",
+        "service": "svc-wms",
+        "severity": "SEV2",
+        "environment": "production",
+        "created_at": "2026-09-02T10:55:00Z",
+        "symptoms": [
+          "Missing orders in warehouse"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Kafka consumer crashed in WMS.",
+        "expected_service": "svc-kafka",
+        "expected_remediation": "Restart WMS consumer pods.",
+        "historical_pattern": "Kafka_Issue"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-004",
+        "title": "Product pages failing to render",
+        "description": "Users are seeing blank white screens when navigating to product details. Console shows multiple JS errors.",
+        "service": "svc-frontend",
+        "severity": "SEV2",
+        "environment": "production",
+        "created_at": "2026-09-02T11:45:00Z",
+        "symptoms": [
+          "Blank screens",
+          "JS console errors"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Bad environment variable causing JS crash.",
+        "expected_service": "svc-frontend",
+        "expected_related_deployment": "dep-frontend-v2.15.0",
+        "expected_remediation": "Rollback frontend.",
+        "historical_pattern": "Frontend_Error",
+        "related_deployment_id": "dep-frontend-v2.15.0"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-005",
+        "title": "Checkout dropping payment attempts",
+        "description": "Spike in payment failures. Adapter logs indicate context deadline exceeded when communicating with upstream provider.",
+        "service": "svc-payment",
+        "severity": "SEV1",
+        "environment": "production",
+        "created_at": "2026-09-02T12:45:00Z",
+        "symptoms": [
+          "Checkout error rate 40%",
+          "Deadline exceeded logs"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Upstream provider degraded.",
+        "expected_service": "svc-payment",
+        "expected_remediation": "Trip circuit breaker manually.",
+        "historical_pattern": "Payment_Timeout"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-006",
+        "title": "Users logged out and carts emptying",
+        "description": "Active shopper sessions dropped globally. Users trying to add items get errors. OMS logs show 'Redis connection reset by peer'.",
+        "service": "svc-redis",
+        "severity": "SEV1",
+        "environment": "production",
+        "created_at": "2026-09-02T13:30:00Z",
+        "symptoms": [
+          "Cart emptiness",
+          "Redis connection errors"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "OOM on Redis.",
+        "expected_service": "svc-redis",
+        "expected_remediation": "Change eviction policy to volatile-lru.",
+        "historical_pattern": "Redis_Issue"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-007",
+        "title": "OMS and WMS data mismatch",
+        "description": "Support tickets indicate orders show 'Paid' in OMS but do not exist in WMS. New Relic shows unusual Kafka metrics.",
+        "service": "svc-oms",
+        "severity": "SEV2",
+        "environment": "production",
+        "created_at": "2026-09-02T13:55:00Z",
+        "symptoms": [
+          "Data mismatch between OMS and WMS"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Kafka partition offline.",
+        "expected_service": "svc-kafka",
+        "expected_remediation": "Investigate Kafka broker storage.",
+        "historical_pattern": "Kafka_Issue"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-008",
+        "title": "Intermittent checkout latency (Conflicting Evidence)",
+        "description": "Checkout latency is spiking erratically. Network looks fine. Inventory deployed recently, but inventory service looks healthy.",
+        "service": "svc-oms",
+        "severity": "SEV2",
+        "environment": "production",
+        "created_at": "2026-09-02T14:45:00Z",
+        "symptoms": [
+          "Intermittent 3000ms latency"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Cron job on DB (Misleading deploy correlation).",
+        "expected_service": "svc-pg-oms",
+        "expected_related_deployment": "dep-inventory-v1.9.6",
+        "expected_remediation": "Kill cron job on DB.",
+        "historical_pattern": "DB_Exhaustion",
+        "related_deployment_id": "dep-inventory-v1.9.6",
+        "correlation": "false"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-009",
+        "title": "Payment gateway 503s on Checkout (Novel)",
+        "description": "Spike in 503s from internal payment service. Upstream vendor status pages show everything is green. No recent deployments.",
+        "service": "svc-payment",
+        "severity": "SEV1",
+        "environment": "production",
+        "created_at": "2026-09-02T15:20:00Z",
+        "symptoms": [
+          "Payment drops",
+          "503 errors"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Network NAT gateway IP limits exhausted.",
+        "expected_service": "svc-payment",
+        "expected_remediation": "Provision additional NAT gateways.",
+        "historical_pattern": "Novel"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-010",
+        "title": "Inventory service pods CrashLooping",
+        "description": "The 15:55 inventory rollout appears to be failing. New pods are entering CrashLoopBackOff.",
+        "service": "svc-inventory",
+        "severity": "SEV2",
+        "environment": "production",
+        "created_at": "2026-09-02T16:15:00Z",
+        "symptoms": [
+          "CrashLoopBackOff",
+          "Inventory out of date"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Bad config map in deploy.",
+        "expected_service": "svc-inventory",
+        "expected_related_deployment": "dep-inventory-bad",
+        "expected_remediation": "Rollback deployment.",
+        "historical_pattern": "Deployment_Regression",
+        "related_deployment_id": "dep-inventory-bad"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-011",
+        "title": "Negative order totals in database",
+        "description": "Critical alerting: multiple orders in the last 15 minutes saved with negative final totals, triggering fraud safeguards.",
+        "service": "svc-oms",
+        "severity": "SEV1",
+        "environment": "production",
+        "created_at": "2026-09-02T17:15:00Z",
+        "symptoms": [
+          "Negative order totals",
+          "Fraud alerts"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Logic error in discount engine.",
+        "expected_service": "svc-oms",
+        "expected_remediation": "Pause checkout, require human approval for DB fix.",
+        "historical_pattern": "Novel"
+      }
+    },
+    {
+      "incident": {
+        "incident_id": "DEMO-012",
+        "title": "Warehouse DB Replication Lag",
+        "description": "Monitoring indicates that the WMS read replicas are over 10 minutes stale, impacting reporting systems.",
+        "service": "svc-pg-wms",
+        "severity": "SEV2",
+        "environment": "production",
+        "created_at": "2026-09-02T18:15:00Z",
+        "symptoms": [
+          "Replication lag > 10 mins"
+        ]
+      },
+      "ground_truth": {
+        "actual_root_cause": "Network packet loss between AZs.",
+        "expected_service": "svc-pg-wms",
+        "expected_remediation": "Switch primary to healthy AZ.",
+        "historical_pattern": "PG_WMS_Issue"
+      }
+    }
+  ]
+}

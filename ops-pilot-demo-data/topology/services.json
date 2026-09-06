@@ -1,0 +1,76 @@
+{
+  "services": [
+    {
+      "id": "svc-frontend",
+      "name": "E-Commerce Storefront",
+      "description": "Customer-facing web application and API gateway.",
+      "owner": "Customer Experience",
+      "criticality": "critical",
+      "environment": "production"
+    },
+    {
+      "id": "svc-oms",
+      "name": "Order Management System",
+      "description": "Core orchestration for cart checkout and order state.",
+      "owner": "Order Platform Team",
+      "criticality": "critical",
+      "environment": "production"
+    },
+    {
+      "id": "svc-wms",
+      "name": "Warehouse Management System",
+      "description": "Handles fulfillment, packing, and shipping orchestration.",
+      "owner": "Fulfillment Operations",
+      "criticality": "high",
+      "environment": "production"
+    },
+    {
+      "id": "svc-payment",
+      "name": "Payment Gateway Adapter",
+      "description": "Integrates with external payment processors.",
+      "owner": "FinTech Integrations",
+      "criticality": "critical",
+      "environment": "production"
+    },
+    {
+      "id": "svc-inventory",
+      "name": "Inventory Service",
+      "description": "Provides real-time stock levels.",
+      "owner": "Supply Chain",
+      "criticality": "high",
+      "environment": "production"
+    },
+    {
+      "id": "svc-redis",
+      "name": "OMS Redis Cluster",
+      "description": "Caches cart state and active sessions.",
+      "owner": "Platform Infrastructure",
+      "criticality": "high",
+      "environment": "production"
+    },
+    {
+      "id": "svc-pg-oms",
+      "name": "OMS PostgreSQL",
+      "description": "Primary relational store for orders.",
+      "owner": "Platform Infrastructure",
+      "criticality": "critical",
+      "environment": "production"
+    },
+    {
+      "id": "svc-pg-wms",
+      "name": "Warehouse PostgreSQL",
+      "description": "Relational store for fulfillment centers.",
+      "owner": "Platform Infrastructure",
+      "criticality": "high",
+      "environment": "production"
+    },
+    {
+      "id": "svc-kafka",
+      "name": "Kafka Event Broker",
+      "description": "Central event bus for asynchronous communication.",
+      "owner": "Platform Infrastructure",
+      "criticality": "critical",
+      "environment": "production"
+    }
+  ]
+}

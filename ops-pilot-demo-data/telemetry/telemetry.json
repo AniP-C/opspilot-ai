@@ -1,0 +1,1407 @@
+{
+  "telemetry": [
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T09:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 150,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {
+        "cpu_percent": 30
+      }
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-09-02T09:00:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 5,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 25,
+      "metadata": {
+        "connection_usage_percent": 25
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T09:15:00Z",
+      "error_rate_percent": 2.0,
+      "latency_ms": 1500,
+      "throughput": 450,
+      "health_status": "degraded",
+      "active_connections": 300,
+      "metadata": {
+        "cpu_percent": 60
+      }
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-09-02T09:15:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 50,
+      "throughput": 450,
+      "health_status": "degraded",
+      "active_connections": 75,
+      "metadata": {
+        "connection_usage_percent": 75
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T09:25:00Z",
+      "error_rate_percent": 12.0,
+      "latency_ms": 3500,
+      "throughput": 480,
+      "health_status": "critical",
+      "active_connections": 500,
+      "metadata": {
+        "cpu_percent": 90
+      }
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-09-02T09:25:00Z",
+      "error_rate_percent": 5.0,
+      "latency_ms": 500,
+      "throughput": 480,
+      "health_status": "critical",
+      "active_connections": 100,
+      "metadata": {
+        "connection_usage_percent": 100
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T09:55:00Z",
+      "error_rate_percent": 0.2,
+      "latency_ms": 160,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "cpu_percent": 35
+      }
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-09-02T09:55:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 5,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 30,
+      "metadata": {
+        "connection_usage_percent": 30
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T09:40:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 145,
+      "throughput": 450,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {
+        "version": "v4.2.0"
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T10:00:00Z",
+      "error_rate_percent": 5.5,
+      "latency_ms": 2000,
+      "throughput": 450,
+      "health_status": "degraded",
+      "active_connections": 200,
+      "metadata": {
+        "version": "v4.2.1"
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T10:15:00Z",
+      "error_rate_percent": 15.5,
+      "latency_ms": 4100,
+      "throughput": 450,
+      "health_status": "critical",
+      "active_connections": 250,
+      "metadata": {
+        "version": "v4.2.1"
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T10:45:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 150,
+      "throughput": 450,
+      "health_status": "healthy",
+      "active_connections": 110,
+      "metadata": {
+        "version": "v4.2.0"
+      }
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-09-02T10:30:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 1000,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {
+        "partition_lag": 10
+      }
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-09-02T10:30:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 50,
+      "throughput": 1000,
+      "health_status": "healthy",
+      "active_connections": 50,
+      "metadata": {
+        "consumer_state": "online"
+      }
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-09-02T10:45:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 1000,
+      "health_status": "degraded",
+      "active_connections": 100,
+      "metadata": {
+        "partition_lag": 50000
+      }
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-09-02T10:55:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 0,
+      "throughput": 0,
+      "health_status": "critical",
+      "active_connections": 0,
+      "metadata": {
+        "consumer_state": "offline"
+      }
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-09-02T11:20:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {
+        "partition_lag": 0
+      }
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-09-02T11:20:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 50,
+      "metadata": {
+        "consumer_state": "online"
+      }
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-09-02T11:15:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 80,
+      "throughput": 800,
+      "health_status": "healthy",
+      "active_connections": 500,
+      "metadata": {
+        "js_errors": 2
+      }
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-09-02T11:30:00Z",
+      "error_rate_percent": 15.0,
+      "latency_ms": 85,
+      "throughput": 800,
+      "health_status": "degraded",
+      "active_connections": 500,
+      "metadata": {
+        "js_errors": 1500
+      }
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-09-02T11:45:00Z",
+      "error_rate_percent": 45.0,
+      "latency_ms": 85,
+      "throughput": 800,
+      "health_status": "critical",
+      "active_connections": 500,
+      "metadata": {
+        "js_errors": 5000
+      }
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-09-02T12:15:00Z",
+      "error_rate_percent": 0.2,
+      "latency_ms": 80,
+      "throughput": 800,
+      "health_status": "healthy",
+      "active_connections": 500,
+      "metadata": {
+        "js_errors": 5
+      }
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T12:15:00Z",
+      "error_rate_percent": 0.5,
+      "latency_ms": 300,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 80,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T12:15:00Z",
+      "error_rate_percent": 0.5,
+      "latency_ms": 150,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T12:35:00Z",
+      "error_rate_percent": 15.0,
+      "latency_ms": 4000,
+      "throughput": 200,
+      "health_status": "degraded",
+      "active_connections": 80,
+      "metadata": {
+        "upstream_timeouts": 15
+      }
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T12:45:00Z",
+      "error_rate_percent": 40.0,
+      "latency_ms": 8000,
+      "throughput": 200,
+      "health_status": "critical",
+      "active_connections": 80,
+      "metadata": {
+        "upstream_timeouts": 80
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T12:45:00Z",
+      "error_rate_percent": 15.0,
+      "latency_ms": 4000,
+      "throughput": 400,
+      "health_status": "degraded",
+      "active_connections": 200,
+      "metadata": {
+        "payment_drops": "high"
+      }
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T13:15:00Z",
+      "error_rate_percent": 0.5,
+      "latency_ms": 300,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 80,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-09-02T13:00:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 2,
+      "throughput": 5000,
+      "health_status": "healthy",
+      "active_connections": 1000,
+      "metadata": {
+        "memory_utilization": "70%"
+      }
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-09-02T13:15:00Z",
+      "error_rate_percent": 5.0,
+      "latency_ms": 50,
+      "throughput": 4000,
+      "health_status": "degraded",
+      "active_connections": 1000,
+      "metadata": {
+        "memory_utilization": "95%"
+      }
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-09-02T13:30:00Z",
+      "error_rate_percent": 100.0,
+      "latency_ms": 500,
+      "throughput": 50,
+      "health_status": "critical",
+      "active_connections": 10,
+      "metadata": {
+        "memory_utilization": "100%",
+        "oom_kills": 5
+      }
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-09-02T14:00:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 2,
+      "throughput": 5000,
+      "health_status": "healthy",
+      "active_connections": 1000,
+      "metadata": {
+        "memory_utilization": "50%"
+      }
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-09-02T13:30:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 1500,
+      "health_status": "healthy",
+      "active_connections": 200,
+      "metadata": {
+        "partition_lag": 10
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T13:30:00Z",
+      "error_rate_percent": 0.5,
+      "latency_ms": 150,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "kafka_publish_success": "true"
+      }
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-09-02T13:45:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 12,
+      "throughput": 1500,
+      "health_status": "degraded",
+      "active_connections": 180,
+      "metadata": {
+        "partition_lag": 50000,
+        "under_replicated": "true"
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T13:55:00Z",
+      "error_rate_percent": 0.5,
+      "latency_ms": 150,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "kafka_publish_success": "true"
+      }
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-09-02T14:25:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 1500,
+      "health_status": "healthy",
+      "active_connections": 200,
+      "metadata": {
+        "partition_lag": 0,
+        "under_replicated": "false"
+      }
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-09-02T14:40:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 30,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 40,
+      "metadata": {
+        "version": "v1.9.6"
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T14:30:00Z",
+      "error_rate_percent": 4.0,
+      "latency_ms": 1500,
+      "throughput": 400,
+      "health_status": "degraded",
+      "active_connections": 150,
+      "metadata": {
+        "db_cpu_percent": 80
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T14:45:00Z",
+      "error_rate_percent": 8.5,
+      "latency_ms": 3200,
+      "throughput": 400,
+      "health_status": "critical",
+      "active_connections": 250,
+      "metadata": {
+        "db_cpu_percent": 98
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T15:15:00Z",
+      "error_rate_percent": 0.4,
+      "latency_ms": 180,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "db_cpu_percent": 30
+      }
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T14:50:00Z",
+      "error_rate_percent": 0.5,
+      "latency_ms": 300,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 80,
+      "metadata": {
+        "outbound_packet_drop": 0
+      }
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T15:10:00Z",
+      "error_rate_percent": 10.0,
+      "latency_ms": 300,
+      "throughput": 200,
+      "health_status": "degraded",
+      "active_connections": 65,
+      "metadata": {
+        "outbound_packet_drop": 1000
+      }
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T15:20:00Z",
+      "error_rate_percent": 25.0,
+      "latency_ms": 100,
+      "throughput": 200,
+      "health_status": "critical",
+      "active_connections": 50,
+      "metadata": {
+        "outbound_packet_drop": 2500
+      }
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-02T15:50:00Z",
+      "error_rate_percent": 0.5,
+      "latency_ms": 300,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 80,
+      "metadata": {
+        "outbound_packet_drop": 0
+      }
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-09-02T15:45:00Z",
+      "error_rate_percent": 0.2,
+      "latency_ms": 40,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 50,
+      "metadata": {
+        "restarts": 0
+      }
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-09-02T16:05:00Z",
+      "error_rate_percent": 40.0,
+      "latency_ms": 0,
+      "throughput": 0,
+      "health_status": "degraded",
+      "active_connections": 0,
+      "metadata": {
+        "restarts": 5,
+        "status": "CrashLoopBackOff"
+      }
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-09-02T16:15:00Z",
+      "error_rate_percent": 100.0,
+      "latency_ms": 0,
+      "throughput": 0,
+      "health_status": "critical",
+      "active_connections": 0,
+      "metadata": {
+        "restarts": 15,
+        "status": "CrashLoopBackOff"
+      }
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-09-02T16:45:00Z",
+      "error_rate_percent": 0.2,
+      "latency_ms": 40,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 50,
+      "metadata": {
+        "restarts": 0
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T16:45:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 160,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "anomalous_data_inserts": 0
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T17:05:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 160,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "anomalous_data_inserts": 5
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T17:15:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 160,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "anomalous_data_inserts": 25
+      }
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-02T17:45:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 160,
+      "throughput": 400,
+      "health_status": "healthy",
+      "active_connections": 120,
+      "metadata": {
+        "anomalous_data_inserts": 0
+      }
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-09-02T17:45:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 100,
+      "health_status": "healthy",
+      "active_connections": 40,
+      "metadata": {
+        "replication_lag_seconds": 2
+      }
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-09-02T18:00:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 100,
+      "health_status": "degraded",
+      "active_connections": 40,
+      "metadata": {
+        "replication_lag_seconds": 300
+      }
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-09-02T18:15:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 100,
+      "health_status": "critical",
+      "active_connections": 40,
+      "metadata": {
+        "replication_lag_seconds": 650
+      }
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-09-02T18:45:00Z",
+      "error_rate_percent": 0.0,
+      "latency_ms": 10,
+      "throughput": 100,
+      "health_status": "healthy",
+      "active_connections": 40,
+      "metadata": {
+        "replication_lag_seconds": 5
+      }
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-frontend",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-oms",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-wms",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-payment",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-inventory",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-redis",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-oms",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-pg-wms",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-08-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-08-05T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-08-10T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-08-15T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-08-20T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-08-25T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-08-28T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    },
+    {
+      "service": "svc-kafka",
+      "timestamp": "2026-09-01T12:00:00Z",
+      "error_rate_percent": 0.1,
+      "latency_ms": 50,
+      "throughput": 200,
+      "health_status": "healthy",
+      "active_connections": 100,
+      "metadata": {}
+    }
+  ]
+}

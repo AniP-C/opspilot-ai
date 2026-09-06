@@ -1,0 +1,796 @@
+{
+  "historical_incidents": [
+    {
+      "incident_id": "INC-1001",
+      "title": "Checkout dropping connections",
+      "description": "At 08:42 UTC, checkout requests began returning HTTP 504. DB connections maxed out.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-01T08:42:00Z",
+      "resolved_at": "2026-08-01T09:12:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Traffic spike exhausted connection pool.",
+      "resolution": "Scaled DB max_connections.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "DB_Exhaustion",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1002",
+      "title": "OMS unable to reach database",
+      "description": "Complete checkout halt. DB rejecting incoming connections from app pods.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-03T14:00:00Z",
+      "resolved_at": "2026-08-03T14:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Network partition between app tier and DB tier.",
+      "resolution": "Resolved by cloud provider.",
+      "resolution_success": true,
+      "affected_component": "network",
+      "incident_fingerprint": "DB_Exhaustion",
+      "duration_minutes": 45
+    },
+    {
+      "incident_id": "INC-1003",
+      "title": "500s on order submission",
+      "description": "Orders failing at 14:00. PostgreSQL logging 'sorry, too many clients already'.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-07T14:00:00Z",
+      "resolved_at": "2026-08-07T14:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Heavy ad-hoc report query locked table and consumed pool.",
+      "resolution": "Killed rogue report query.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "DB_Exhaustion",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1004",
+      "title": "DB pool maxed out alerts",
+      "description": "New Relic reported 100% connection usage on pg-oms. OMS latency increasing.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-12T09:00:00Z",
+      "resolved_at": "2026-08-12T09:20:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "PgBouncer misconfiguration after routine restart.",
+      "resolution": "Fixed PgBouncer limits.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "DB_Exhaustion",
+      "duration_minutes": 20
+    },
+    {
+      "incident_id": "INC-1005",
+      "title": "OMS DB exhaustion right after Inventory deploy",
+      "description": "Inventory deployed 09:00. OMS DB crashed 09:15. Checkout halted.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-06T09:15:00Z",
+      "resolved_at": "2026-08-06T10:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "A cron job on the DB started at 09:15. Inventory deploy was coincidental.",
+      "resolution": "Killed cron job.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "DB_Exhaustion",
+      "duration_minutes": 45,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-f1",
+        "correlation": "false"
+      }
+    },
+    {
+      "incident_id": "INC-1006",
+      "title": "Order creation latency after deploy",
+      "description": "Following the 09:00 rollout, OMS response times increased by 4x.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-05T09:15:00Z",
+      "resolved_at": "2026-08-05T09:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Un-indexed query introduced in v3.9.0.",
+      "resolution": "Rolled back OMS.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 30,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-t1",
+        "correlation": "true"
+      }
+    },
+    {
+      "incident_id": "INC-1007",
+      "title": "High error rate post-release",
+      "description": "Checkout API returning 400s for valid payloads continuously.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-09T10:00:00Z",
+      "resolved_at": "2026-08-09T10:35:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Validation logic error in new release.",
+      "resolution": "Hotfixed OMS payload validation.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 35
+    },
+    {
+      "incident_id": "INC-1008",
+      "title": "Missing fields in order payload",
+      "description": "Downstream services failing to parse orders. Missing total_amount.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-13T11:00:00Z",
+      "resolved_at": "2026-08-13T11:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Schema change deployed without backward compatibility.",
+      "resolution": "Rolled back API version.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 45
+    },
+    {
+      "incident_id": "INC-1009",
+      "title": "Memory leak in OMS pods",
+      "description": "OMS pods OOMKilled every 2 hours causing rolling degradation.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-18T08:00:00Z",
+      "resolved_at": "2026-08-18T10:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Caching bug in new library version.",
+      "resolution": "Reverted library bump.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 120
+    },
+    {
+      "incident_id": "INC-1010",
+      "title": "OMS crash on startup",
+      "description": "New pods failing readiness probes immediately after startup.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-22T09:00:00Z",
+      "resolved_at": "2026-08-22T09:25:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Missing environment variable for feature flag.",
+      "resolution": "Added missing secret to cluster.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 25
+    },
+    {
+      "incident_id": "INC-1011",
+      "title": "Orders not reaching warehouse",
+      "description": "Fulfillment center reports 0 new orders since 10 AM.",
+      "service": "svc-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-02T10:30:00Z",
+      "resolved_at": "2026-08-02T11:15:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "WMS consumer paused due to unparseable JSON payload.",
+      "resolution": "Skipped bad offset manually.",
+      "resolution_success": true,
+      "affected_component": "worker",
+      "incident_fingerprint": "WMS_Sync",
+      "duration_minutes": 45
+    },
+    {
+      "incident_id": "INC-1012",
+      "title": "Fulfillment delays and high CPU",
+      "description": "Warehouse SLAs breached. WMS DB CPU locked at 100%.",
+      "service": "svc-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-08T14:00:00Z",
+      "resolved_at": "2026-08-08T15:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Autovacuum stuck in Postgres causing severe bloat.",
+      "resolution": "Manual vacuum run on affected tables.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "WMS_Sync",
+      "duration_minutes": 60
+    },
+    {
+      "incident_id": "INC-1013",
+      "title": "WMS worker crash after deploy",
+      "description": "Workers crashing at 11:15 after 11:00 deploy. No orders processing.",
+      "service": "svc-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-20T11:15:00Z",
+      "resolved_at": "2026-08-20T11:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Bad memory limit in v2.2.0 helm chart.",
+      "resolution": "Rolled back WMS deployment.",
+      "resolution_success": true,
+      "affected_component": "worker",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 30,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-t3",
+        "correlation": "true"
+      }
+    },
+    {
+      "incident_id": "INC-1014",
+      "title": "Missing packing slips",
+      "description": "Printers in warehouse stopped receiving data streams.",
+      "service": "svc-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-24T09:00:00Z",
+      "resolved_at": "2026-08-24T09:40:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Internal WMS worker thread exhaustion due to slow API.",
+      "resolution": "Restarted WMS pods and increased thread pool.",
+      "resolution_success": true,
+      "affected_component": "worker",
+      "incident_fingerprint": "WMS_Sync",
+      "duration_minutes": 40
+    },
+    {
+      "incident_id": "INC-1015",
+      "title": "Inventory reservation failures",
+      "description": "WMS unable to reserve stock, leaving orders in pending state.",
+      "service": "svc-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-27T10:00:00Z",
+      "resolved_at": "2026-08-27T10:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Inventory API aggressively rate limiting WMS calls.",
+      "resolution": "Increased rate limit tier for WMS.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "WMS_Sync",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1016",
+      "title": "Adyen timeouts",
+      "description": "Payments failing with gateway timeout. Latency > 10s.",
+      "service": "svc-payment",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-04T12:00:00Z",
+      "resolved_at": "2026-08-04T12:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Adyen API degraded globally.",
+      "resolution": "Tripped breaker to Stripe fallback.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Payment_Timeout",
+      "duration_minutes": 45
+    },
+    {
+      "incident_id": "INC-1017",
+      "title": "Stripe API 503s",
+      "description": "Checkout abandoning at payment step. Adapter logging network drops.",
+      "service": "svc-payment",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-09T14:00:00Z",
+      "resolved_at": "2026-08-09T15:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Network NAT gateway IP addresses exhausted.",
+      "resolution": "Provisioned new NAT gateway.",
+      "resolution_success": true,
+      "affected_component": "network",
+      "incident_fingerprint": "Payment_Timeout",
+      "duration_minutes": 60
+    },
+    {
+      "incident_id": "INC-1018",
+      "title": "Payment gateway timeout immediately after config push",
+      "description": "At 14:05, payments started timing out. An OMS config deploy happened at 14:00.",
+      "service": "svc-payment",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-11T14:15:00Z",
+      "resolved_at": "2026-08-11T14:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Upstream Stripe was down. The OMS deploy was coincidental.",
+      "resolution": "Waited for Stripe recovery.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Payment_Timeout",
+      "duration_minutes": 30,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-f2",
+        "correlation": "false"
+      }
+    },
+    {
+      "incident_id": "INC-1019",
+      "title": "Payment circuit breaker open",
+      "description": "All payments routed to fallback processor erroneously.",
+      "service": "svc-payment",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-15T09:00:00Z",
+      "resolved_at": "2026-08-15T09:20:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Temporary internal network blip triggered aggressive breaker.",
+      "resolution": "Reset circuit breaker manually.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Payment_Timeout",
+      "duration_minutes": 20
+    },
+    {
+      "incident_id": "INC-1020",
+      "title": "Payment API crash after deploy",
+      "description": "Payment gateway completely unresponsive after 10:00 update.",
+      "service": "svc-payment",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-25T10:15:00Z",
+      "resolved_at": "2026-08-25T10:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Missing dependency in v1.5.0 container image.",
+      "resolution": "Rolled back Payment service.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 30,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-t4",
+        "correlation": "true"
+      }
+    },
+    {
+      "incident_id": "INC-1021",
+      "title": "Cart state lost globally",
+      "description": "Users logged out, carts emptying randomly.",
+      "service": "svc-redis",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-03T11:00:00Z",
+      "resolved_at": "2026-08-03T11:40:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Redis OOM eviction policy aggressively deleted active sessions.",
+      "resolution": "Changed eviction policy to volatile-lru.",
+      "resolution_success": true,
+      "affected_component": "cache",
+      "incident_fingerprint": "Redis_Issue",
+      "duration_minutes": 40
+    },
+    {
+      "incident_id": "INC-1022",
+      "title": "Redis connection reset",
+      "description": "OMS logging 'connection reset by peer' when talking to cache.",
+      "service": "svc-redis",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-10T08:00:00Z",
+      "resolved_at": "2026-08-10T08:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Redis node underlying hardware failure.",
+      "resolution": "Cloud provider auto-replaced node.",
+      "resolution_success": true,
+      "affected_component": "cache",
+      "incident_fingerprint": "Redis_Issue",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1023",
+      "title": "High Redis CPU",
+      "description": "Redis CPU locked at 99%. OMS latency climbing.",
+      "service": "svc-redis",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-17T15:00:00Z",
+      "resolved_at": "2026-08-17T15:15:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Expensive KEYS * query run accidentally by developer in production.",
+      "resolution": "Killed rogue query.",
+      "resolution_success": true,
+      "affected_component": "cache",
+      "incident_fingerprint": "Redis_Issue",
+      "duration_minutes": 15
+    },
+    {
+      "incident_id": "INC-1024",
+      "title": "Redis OOM right after WMS deploy",
+      "description": "WMS deployed at 11:00. At 11:10 Redis OOMed.",
+      "service": "svc-redis",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-21T11:15:00Z",
+      "resolved_at": "2026-08-21T11:50:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Marketing email blast caused traffic spike. WMS deploy unrelated.",
+      "resolution": "Scaled Redis memory allocation.",
+      "resolution_success": true,
+      "affected_component": "cache",
+      "incident_fingerprint": "Redis_Issue",
+      "duration_minutes": 35,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-f4",
+        "correlation": "false"
+      }
+    },
+    {
+      "incident_id": "INC-1025",
+      "title": "Cart button missing",
+      "description": "After the 14:00 deploy, add to cart button vanished.",
+      "service": "svc-frontend",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-10T14:15:00Z",
+      "resolved_at": "2026-08-10T14:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "CSS class renamed incorrectly in v2.10.1.",
+      "resolution": "Rolled back frontend deploy.",
+      "resolution_success": true,
+      "affected_component": "ui",
+      "incident_fingerprint": "Deployment_Regression",
+      "duration_minutes": 30,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-t2",
+        "correlation": "true"
+      }
+    },
+    {
+      "incident_id": "INC-1026",
+      "title": "Frontend 502 Bad Gateway right after config change",
+      "description": "At 10:15, ingress returned 502s. Frontend deploy happened at 10:00.",
+      "service": "svc-frontend",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-16T10:15:00Z",
+      "resolved_at": "2026-08-16T11:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "AWS Load Balancer routing failure. Frontend deploy was coincidental.",
+      "resolution": "Re-provisioned Load Balancer.",
+      "resolution_success": true,
+      "affected_component": "gateway",
+      "incident_fingerprint": "Frontend_Error",
+      "duration_minutes": 45,
+      "ground_truth": {
+        "related_deployment_id": "dep-hist-f3",
+        "correlation": "false"
+      }
+    },
+    {
+      "incident_id": "INC-1027",
+      "title": "Blank white screen on product page",
+      "description": "React application crashing on render.",
+      "service": "svc-frontend",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-19T13:00:00Z",
+      "resolved_at": "2026-08-19T13:40:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Null pointer in product gallery component.",
+      "resolution": "Hotfix deployed to bypass broken component.",
+      "resolution_success": true,
+      "affected_component": "ui",
+      "incident_fingerprint": "Frontend_Error",
+      "duration_minutes": 40
+    },
+    {
+      "incident_id": "INC-1028",
+      "title": "CORS errors on checkout",
+      "description": "API requests blocked by browser pre-flight checks.",
+      "service": "svc-frontend",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-28T09:00:00Z",
+      "resolved_at": "2026-08-28T09:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Bad origin configuration in API gateway.",
+      "resolution": "Updated ingress configuration.",
+      "resolution_success": true,
+      "affected_component": "gateway",
+      "incident_fingerprint": "Frontend_Error",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1029",
+      "title": "Consumer lag spiking across all topics",
+      "description": "WMS and Inventory lag > 100k messages.",
+      "service": "svc-kafka",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-05T12:00:00Z",
+      "resolved_at": "2026-08-05T12:50:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Kafka broker memory limits hit causing JVM GC pauses.",
+      "resolution": "Scaled broker memory.",
+      "resolution_success": true,
+      "affected_component": "broker",
+      "incident_fingerprint": "Kafka_Issue",
+      "duration_minutes": 50
+    },
+    {
+      "incident_id": "INC-1030",
+      "title": "Kafka partition offline",
+      "description": "One broker down, causing under-replicated partitions.",
+      "service": "svc-kafka",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-12T10:00:00Z",
+      "resolved_at": "2026-08-12T11:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Disk full on broker 2 due to retention policy bug.",
+      "resolution": "Expanded EBS volume and restarted broker.",
+      "resolution_success": true,
+      "affected_component": "broker",
+      "incident_fingerprint": "Kafka_Issue",
+      "duration_minutes": 60
+    },
+    {
+      "incident_id": "INC-1031",
+      "title": "WMS consumer dropping messages",
+      "description": "Kafka consumer group continuously rebalancing.",
+      "service": "svc-kafka",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-18T14:00:00Z",
+      "resolved_at": "2026-08-18T14:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Network instability causing heartbeat timeouts.",
+      "resolution": "Increased session.timeout.ms.",
+      "resolution_success": true,
+      "affected_component": "consumer",
+      "incident_fingerprint": "Kafka_Issue",
+      "duration_minutes": 45
+    },
+    {
+      "incident_id": "INC-1032",
+      "title": "High publish latency",
+      "description": "OMS taking > 500ms to publish to Kafka.",
+      "service": "svc-kafka",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-23T16:00:00Z",
+      "resolved_at": "2026-08-23T16:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "No leader available for partition 3.",
+      "resolution": "Ran preferred replica election.",
+      "resolution_success": true,
+      "affected_component": "broker",
+      "incident_fingerprint": "Kafka_Issue",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1033",
+      "title": "Warehouse DB replication lag",
+      "description": "Read replicas 15 mins behind primary.",
+      "service": "svc-pg-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-06T15:00:00Z",
+      "resolved_at": "2026-08-06T15:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Heavy batch insert locked WAL stream.",
+      "resolution": "Throttled batch job throughput.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "PG_WMS_Issue",
+      "duration_minutes": 45
+    },
+    {
+      "incident_id": "INC-1034",
+      "title": "WMS DB disk full",
+      "description": "Postgres stopped accepting writes.",
+      "service": "svc-pg-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-14T08:00:00Z",
+      "resolved_at": "2026-08-14T09:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Archived logs filled secondary disk.",
+      "resolution": "Truncated logs and expanded disk.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "PG_WMS_Issue",
+      "duration_minutes": 60
+    },
+    {
+      "incident_id": "INC-1035",
+      "title": "High IOPS on warehouse DB",
+      "description": "Query latency high impacting WMS operations.",
+      "service": "svc-pg-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-21T10:00:00Z",
+      "resolved_at": "2026-08-21T10:50:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Missing index on fulfillment table.",
+      "resolution": "Added concurrent index.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "PG_WMS_Issue",
+      "duration_minutes": 50
+    },
+    {
+      "incident_id": "INC-1036",
+      "title": "Database connection reset",
+      "description": "WMS disconnected from pg-wms unexpectedly.",
+      "service": "svc-pg-wms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-29T14:00:00Z",
+      "resolved_at": "2026-08-29T14:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "OOM killer terminated Postgres process.",
+      "resolution": "Restarted instance with higher RAM.",
+      "resolution_success": true,
+      "affected_component": "database",
+      "incident_fingerprint": "PG_WMS_Issue",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1037",
+      "title": "Inventory counts stale",
+      "description": "Stock not updating on storefront.",
+      "service": "svc-inventory",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-07T11:00:00Z",
+      "resolved_at": "2026-08-07T12:00:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Third-party supplier API outage.",
+      "resolution": "Waited for supplier recovery.",
+      "resolution_success": true,
+      "affected_component": "api",
+      "incident_fingerprint": "Inventory_Issue",
+      "duration_minutes": 60
+    },
+    {
+      "incident_id": "INC-1038",
+      "title": "Internal DNS resolution failure",
+      "description": "Services unable to find each other via service mesh.",
+      "service": "svc-frontend",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-11T09:00:00Z",
+      "resolved_at": "2026-08-11T09:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "CoreDNS pod crashlooping in cluster.",
+      "resolution": "Restarted CoreDNS deployment.",
+      "resolution_success": true,
+      "affected_component": "infrastructure",
+      "incident_fingerprint": "DNS_Failure",
+      "duration_minutes": 30
+    },
+    {
+      "incident_id": "INC-1039",
+      "title": "Expired TLS certificate",
+      "description": "API gateway rejecting all external traffic.",
+      "service": "svc-frontend",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-19T08:00:00Z",
+      "resolved_at": "2026-08-19T08:45:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "Automated cert renewal script failed.",
+      "resolution": "Manually renewed and applied certificate.",
+      "resolution_success": true,
+      "affected_component": "security",
+      "incident_fingerprint": "Cert_Issue",
+      "duration_minutes": 45
+    },
+    {
+      "incident_id": "INC-1040",
+      "title": "Missing metrics in New Relic",
+      "description": "Telemetry suddenly stopped arriving for OMS.",
+      "service": "svc-oms",
+      "severity": "SEV2",
+      "environment": "production",
+      "created_at": "2026-08-26T14:00:00Z",
+      "resolved_at": "2026-08-26T14:30:00Z",
+      "symptoms": [
+        "System degradation reported via telemetry alerts"
+      ],
+      "root_cause": "New Relic agent memory limit hit.",
+      "resolution": "Increased agent memory limit.",
+      "resolution_success": true,
+      "affected_component": "observability",
+      "incident_fingerprint": "Telemetry_Issue",
+      "duration_minutes": 30
+    }
+  ]
+}
